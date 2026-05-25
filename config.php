@@ -2,11 +2,13 @@
 // ============================================
 // KONFIGURASI DATABASE
 // ============================================
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'zephyr.proxy.rlwy.net');
+define('DB_PORT', 24856);
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', 'nxCcFrVRdgBJvTVEgRmcRvEugfODoeBk');
 define('DB_NAME', 'toko_online');
-define('BASE_URL', 'http://localhost/toko-online/');
+
+define('BASE_URL', '/');
 define('UPLOAD_DIR', __DIR__ . '/uploads/products/');
 
 // Koneksi Database
