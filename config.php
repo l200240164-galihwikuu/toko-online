@@ -2,34 +2,25 @@
 // ============================================
 // KONFIGURASI DATABASE
 // ============================================
-define('DB_HOST', $_ENV['MYSQLHOST']);
-define('DB_PORT', $_ENV['MYSQLPORT']);
-define('DB_USER', $_ENV['MYSQLUSER']);
-define('DB_PASS', $_ENV['MYSQLPASSWORD']);
-define('DB_NAME', $_ENV['MYSQLDATABASE']);
+define('DB_HOST', 'mysql.railway.internal');
+define('DB_PORT', 3306);
+define('DB_USER', 'root');
+define('DB_PASS', 'nxCcFrVRdgBJvTVEgRmcRvEugfODoeBk');
+define('DB_NAME', 'toko_online');
 
 define('BASE_URL', '/');
 define('UPLOAD_DIR', __DIR__ . '/uploads/products/');
 
+// Koneksi Database
 function getDB() {
     static $conn = null;
-
     if ($conn === null) {
-        $conn = new mysqli(
-            DB_HOST,
-            DB_USER,
-            DB_PASS,
-            DB_NAME,
-            DB_PORT
-        );
-
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($conn->connect_error) {
-            die("Koneksi gagal: " . $conn->connect_error);
+            die(json_encode(['error' => 'Koneksi database gagal: ' . $conn->connect_error]));
         }
-
         $conn->set_charset('utf8mb4');
     }
-
     return $conn;
 }
 
