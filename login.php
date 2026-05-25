@@ -74,7 +74,7 @@ $page_title = 'Login';
         </p>
         <hr style="margin:12px 0; border:none; border-top:1px solid #ddd;">
         <p style="font-size:12px; color:#888; text-align:center;">
-            Demo: admin@toko.com / password &nbsp;|&nbsp; user@gmail.com / user123
+            Demo: admin@toko.com / password &nbsp;|&nbsp; bahlil@gmail.com / bahlil123
         </p>
     </div>
 </div>
