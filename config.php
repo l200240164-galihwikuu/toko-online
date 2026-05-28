@@ -6,7 +6,7 @@ define('DB_HOST', 'mysql.railway.internal');
 define('DB_PORT', 3306);
 define('DB_USER', 'root');
 define('DB_PASS', 'XBVVenLcantxEalhzSYWpKbKabtWtPoy');
-define('DB_NAME', 'toko_online');
+define('DB_NAME', 'railway');
 
 define('BASE_URL', '/');
 define('UPLOAD_DIR', __DIR__ . '/uploads/products/');
