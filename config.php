@@ -2,8 +2,8 @@
 // ============================================
 // KONFIGURASI DATABASE
 // ============================================
-define('DB_HOST', 'metro.proxy.rlwy.net');
-define('DB_PORT', 44660);
+define('DB_HOST', 'mysql.railway.internal');
+define('DB_PORT', 3306);
 define('DB_USER', 'root');
 define('DB_PASS', 'XBVVenLcantxEalhzSYWpKbKabtWtPoy');
 define('DB_NAME', 'toko_online');
