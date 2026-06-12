@@ -793,3 +793,32 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .navbar-nav{
+        position: fixed !important;
+        top: 60px !important;
+        right: 0 !important;
+
+        width: 260px !important;
+        height: calc(100vh - 60px) !important;
+
+        background: #fff;
+
+        flex-direction: column;
+
+        transform: translateX(100%) !important;
+        transition: transform .3s ease !important;
+
+        z-index: 1001;
+    }
+
+    .navbar-nav.is-open{
+        transform: translateX(0) !important;
+    }
+}
