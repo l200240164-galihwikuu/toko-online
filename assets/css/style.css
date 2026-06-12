@@ -695,54 +695,54 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 /* ---- RESPONSIVE ---- */
 
 
-/* ===============================
-   NAVBAR MOBILE
-   =============================== */
-
-.nav-toggle {
-    display: none;
-}
-
 @media (max-width: 768px) {
-
-    .navbar-inner{
-        height:60px;
-        position:relative;
-    }
 
     .nav-toggle{
         display:flex;
-        margin-left:auto;
+        flex-direction:column;
+        justify-content:center;
+        gap:4px;
+        background:none;
+        border:none;
+        cursor:pointer;
         z-index:1002;
     }
 
+    .nav-toggle span{
+        width:24px;
+        height:3px;
+        background:#333;
+        border-radius:10px;
+    }
+
     .navbar-nav{
-        position:fixed;
-        top:60px;
-        right:-260px;
+        position:fixed !important;
+        top:60px !important;
+        right:-100% !important;
+
         width:260px;
         height:calc(100vh - 60px);
-        background:#fff;
+
         display:flex;
         flex-direction:column;
+
+        background:#fff;
         overflow-y:auto;
-        transition:right .3s ease;
-        box-shadow:-5px 0 20px rgba(0,0,0,.1);
         z-index:1001;
+
+        transition:right .3s ease;
     }
 
     .navbar-nav.is-open{
-        right:0;
+        right:0 !important;
     }
 
     .navbar-nav li{
         width:100%;
-        list-style:none;
     }
 
     .navbar-nav li a{
         display:block;
-        width:100%;
         padding:15px 20px;
         border-bottom:1px solid #eee;
     }
@@ -751,15 +751,18 @@ textarea.form-control { resize: vertical; min-height: 90px; }
         position:fixed;
         inset:0;
         background:rgba(0,0,0,.4);
-        opacity:0;
-        visibility:hidden;
-        transition:.3s;
+        display:none;
         z-index:1000;
     }
 
     .nav-overlay.is-visible{
-        opacity:1;
-        visibility:visible;
+        display:block;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        overflow: invisible;
     }
 }
 
