@@ -705,77 +705,61 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 
 @media (max-width: 768px) {
 
-    .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 4px;
-        width: 40px;
-        height: 40px;
-        background: none;
-        border: none;
-        cursor: pointer;
+    .navbar-inner{
+        height:60px;
+        position:relative;
     }
 
-    .nav-toggle span {
-        width: 24px;
-        height: 3px;
-        background: #333;
-        border-radius: 10px;
-        transition: .3s;
+    .nav-toggle{
+        display:flex;
+        margin-left:auto;
+        z-index:1002;
     }
 
-    .navbar-nav {
-        position: fixed;
-        top: 0;
-        right: -280px;
-        width: 280px;
-        height: 100vh;
-        background: #fff;
-        flex-direction: column;
-        align-items: stretch;
-        padding-top: 70px;
-        transition: .3s;
-        box-shadow: -5px 0 20px rgba(0,0,0,.15);
-        z-index: 1000;
+    .navbar-nav{
+        position:fixed;
+        top:60px;
+        right:-260px;
+        width:260px;
+        height:calc(100vh - 60px);
+        background:#fff;
+        display:flex;
+        flex-direction:column;
+        overflow-y:auto;
+        transition:right .3s ease;
+        box-shadow:-5px 0 20px rgba(0,0,0,.1);
+        z-index:1001;
     }
 
-    .navbar-nav.is-open {
-        right: 0;
+    .navbar-nav.is-open{
+        right:0;
     }
 
-    .navbar-nav li {
-        width: 100%;
+    .navbar-nav li{
+        width:100%;
+        list-style:none;
     }
 
-    .navbar-nav li a {
-        display: block;
-        padding: 14px 20px;
-        border-bottom: 1px solid #eee;
+    .navbar-nav li a{
+        display:block;
+        width:100%;
+        padding:15px 20px;
+        border-bottom:1px solid #eee;
     }
 
-    .nav-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,.4);
-        z-index: 999;
+    .nav-overlay{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.4);
+        opacity:0;
+        visibility:hidden;
+        transition:.3s;
+        z-index:1000;
     }
 
-    .nav-overlay.is-visible {
-        display: block;
-    }
-
-    .nav-toggle.is-active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .nav-toggle.is-active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.is-active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+    .nav-overlay.is-visible{
+        opacity:1;
+        visibility:visible;
     }
 }
 
