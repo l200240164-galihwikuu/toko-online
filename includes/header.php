@@ -23,26 +23,109 @@ if (isLoggedIn() && !isAdmin()) {
 
 <div class="navbar">
     <div class="navbar-inner">
-        <a href="<?= BASE_URL ?>index.php" class="navbar-brand">🛒 Toko Online</a>
-        <ul class="navbar-nav">
+
+        <a href="<?= BASE_URL ?>index.php" class="navbar-brand">
+            Toko Online
+        </a>
+
+        <!-- Tombol Hamburger -->
+        <button class="nav-toggle" id="navToggle" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Overlay -->
+        <div class="nav-overlay" id="navOverlay"></div>
+
+        <ul class="navbar-nav" id="navbarNav">
             <li><a href="<?= BASE_URL ?>index.php">Beranda</a></li>
+
             <?php if (isLoggedIn()): ?>
                 <?php if (isAdmin()): ?>
-                    <li><a href="<?= BASE_URL ?>admin/dashboard.php">Admin Panel</a></li>
+                    <li>
+                        <a href="<?= BASE_URL ?>admin/dashboard.php">
+                            Admin Panel
+                        </a>
+                    </li>
                 <?php else: ?>
-                    <li><a href="<?= BASE_URL ?>user/keranjang.php">🛒 Keranjang
-                        <?php if ($cart_count > 0): ?>
-                            <span class="badge-cart"><?= $cart_count ?></span>
-                        <?php endif; ?>
-                    </a></li>
-                    <li><a href="<?= BASE_URL ?>user/pesanan.php">Pesanan Saya</a></li>
-                    <li><a href="<?= BASE_URL ?>user/profil.php">Profil</a></li>
+                    <li>
+                        <a href="<?= BASE_URL ?>user/keranjang.php">
+                            🛒 Keranjang
+                            <?php if ($cart_count > 0): ?>
+                                <span class="badge-cart"><?= $cart_count ?></span>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?= BASE_URL ?>user/pesanan.php">
+                            Pesanan Saya
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?= BASE_URL ?>user/profil.php">
+                            Profil
+                        </a>
+                    </li>
                 <?php endif; ?>
-                <li><a href="<?= BASE_URL ?>logout.php">Keluar</a></li>
+
+                <li>
+                    <a href="<?= BASE_URL ?>logout.php" class="nav-link-danger">
+                        Keluar
+                    </a>
+                </li>
+
             <?php else: ?>
-                <li><a href="<?= BASE_URL ?>login.php">Masuk</a></li>
-                <li><a href="<?= BASE_URL ?>register.php">Daftar</a></li>
+
+                <li>
+                    <a href="<?= BASE_URL ?>login.php">
+                        Masuk
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= BASE_URL ?>register.php" class="nav-link-cta">
+                        Daftar
+                    </a>
+                </li>
+
             <?php endif; ?>
         </ul>
+
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    const navToggle = document.getElementById('navToggle');
+    const navbarNav = document.getElementById('navbarNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    if (!navToggle) return;
+
+    navToggle.addEventListener('click', function() {
+        navToggle.classList.toggle('is-active');
+        navbarNav.classList.toggle('is-open');
+        navOverlay.classList.toggle('is-visible');
+    });
+
+    navOverlay.addEventListener('click', function() {
+        navToggle.classList.remove('is-active');
+        navbarNav.classList.remove('is-open');
+        navOverlay.classList.remove('is-visible');
+    });
+
+    // Tutup menu saat klik link
+    navbarNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('is-active');
+            navbarNav.classList.remove('is-open');
+            navOverlay.classList.remove('is-visible');
+        });
+    });
+
+});
+</script>
