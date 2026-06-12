@@ -76,6 +76,9 @@ $page_title = 'Login';
         <p style="font-size:12px; color:#888; text-align:center;">
             Demo: admin@toko.com / password &nbsp;|&nbsp; bahlil@gmail.com / bahlil123
         </p>
+        <p class="text mt-10" style="font-size:13px;">
+            Kembali ke <a href="<?= BASE_URL ?>index.php">Beranda</a>
+        </p>
     </div>
 </div>
 
