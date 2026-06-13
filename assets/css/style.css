@@ -81,7 +81,7 @@ a:hover { color: var(--accent-h); }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 12px;
+    padding: 0;
     height: 60px;
     gap: 16px;
 }
