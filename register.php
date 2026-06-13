@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body style="background:#f0f0f0;">
 
-<div class="login-wrapper" style="max-width:430px;">
+<div class="login-wrapper register-wrapper">
     <div class="login-header">
-        <h2>🛒 Daftar Akun Baru</h2>
+        <h2>Daftar Akun Baru</h2>
     </div>
     <div class="login-body">
         <?php if ($error): ?>

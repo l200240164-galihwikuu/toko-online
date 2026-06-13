@@ -43,11 +43,11 @@ $page_title = 'Login';
     <title>Login - Toko Online</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
-<body style="background:#f0f0f0;">
+<body>
 
 <div class="login-wrapper">
     <div class="login-header">
-        <h2>🛒 Toko Online</h2>
+        <h2>TokoKu</h2>
         <p style="font-size:13px; margin-top:4px;">Silakan masuk ke akun Anda</p>
     </div>
     <div class="login-body">
@@ -74,7 +74,7 @@ $page_title = 'Login';
         </p>
         <hr style="margin:12px 0; border:none; border-top:1px solid #ddd;">
         <p style="font-size:12px; color:#888; text-align:center;">
-            Demo: admin@toko.com / password &nbsp;|&nbsp; bahlil@gmail.com / bahlil123
+            Demo: admin@toko.com / password &nbsp;|&nbsp; user@gmail.com / user123
         </p>
         <p class="text mt-10" style="font-size:13px;">
             Kembali ke <a href="<?= BASE_URL ?>index.php">Beranda</a>

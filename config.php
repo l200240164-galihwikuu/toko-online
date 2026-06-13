@@ -2,13 +2,19 @@
 // ============================================
 // KONFIGURASI DATABASE
 // ============================================
-define('DB_HOST', 'mysql.railway.internal');
+// define('DB_HOST', 'mysql.railway.internal');
+// define('DB_PORT', 3306);
+// define('DB_USER', 'root');
+// define('DB_PASS', 'smNSQPuXRdWUKyaeIcJngyeJHgmFqtMw');
+// define('DB_NAME', 'toko_online');
+
+define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);
 define('DB_USER', 'root');
-define('DB_PASS', 'smNSQPuXRdWUKyaeIcJngyeJHgmFqtMw');
+define('DB_PASS', '');
 define('DB_NAME', 'toko_online');
 
-define('BASE_URL', '/');
+define('BASE_URL', '/toko-online/');
 define('UPLOAD_DIR', __DIR__ . '/uploads/products/');
 
 // Koneksi Database

@@ -47,25 +47,28 @@ require_once '../includes/header.php';
             <p><strong>Status:</strong> <span class="status status-<?= $detail['status'] ?>"><?= ucfirst($detail['status']) ?></span></p>
             <p><strong>Alamat:</strong> <?= nl2br($detail['alamat_pengiriman']) ?></p>
             <?php if ($detail['catatan']): ?><p><strong>Catatan:</strong> <?= $detail['catatan'] ?></p><?php endif; ?>
-            <table class="table" style="margin-top:12px;">
-                <thead><tr><th>Produk</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th></tr></thead>
-                <tbody>
-                    <?php foreach ($detail['items'] as $item): ?>
-                    <tr>
-                        <td><?= $item['nama_produk'] ?></td>
-                        <td><?= formatRupiah($item['harga']) ?></td>
-                        <td><?= $item['jumlah'] ?></td>
-                        <td><?= formatRupiah($item['subtotal']) ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                    <tr>
-                        <td colspan="3" class="text-right"><strong>TOTAL</strong></td>
-                        <td><strong class="text-red"><?= formatRupiah($detail['total']) ?></strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+            <div class="table-responsive">
+                <table class="table" style="margin-top:12px">
+
+                    <thead><tr><th>Produk</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th></tr></thead>
+                    <tbody>
+                        <?php foreach ($detail['items'] as $item): ?>
+                            <tr>
+                                <td><?= $item['nama_produk'] ?></td>
+                                <td><?= formatRupiah($item['harga']) ?></td>
+                                <td><?= $item['jumlah'] ?></td>
+                                <td><?= formatRupiah($item['subtotal']) ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <tr>
+                                <td colspan="3" class="text-right"><strong>TOTAL</strong></td>
+                                <td><strong class="text-red"><?= formatRupiah($detail['total']) ?></strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                        </div>
+                </div>
+            </div>
     <?php else: ?>
     <div class="box">
         <div class="box-title">Riwayat Pesanan</div>
@@ -76,25 +79,27 @@ require_once '../includes/header.php';
                     <a href="<?= BASE_URL ?>index.php" class="btn btn-primary mt-10">Belanja Sekarang</a>
                 </div>
             <?php else: ?>
-            <table class="table">
-                <thead><tr><th>Kode Pesanan</th><th>Total</th><th>Status</th><th>Tanggal</th><th>Aksi</th></tr></thead>
-                <tbody>
-                    <?php foreach ($list as $p): ?>
-                    <tr>
-                        <td><?= $p['kode_pesanan'] ?></td>
-                        <td><?= formatRupiah($p['total']) ?></td>
-                        <td><span class="status status-<?= $p['status'] ?>"><?= ucfirst($p['status']) ?></span></td>
-                        <td><?= date('d/m/Y H:i', strtotime($p['created_at'])) ?></td>
-                        <td>
-                            <a href="pesanan.php?id=<?= $p['id'] ?>" class="btn btn-primary btn-sm">Detail</a>
-                            <?php if ($p['status'] === 'pending'): ?>
-                                <a href="pesanan.php?batal=<?= $p['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Batalkan pesanan ini?')">Batalkan</a>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead><tr><th>Kode Pesanan</th><th>Total</th><th>Status</th><th>Tanggal</th><th>Aksi</th></tr></thead>
+                    <tbody>
+                        <?php foreach ($list as $p): ?>
+                            <tr>
+                                <td><?= $p['kode_pesanan'] ?></td>
+                                <td><?= formatRupiah($p['total']) ?></td>
+                                <td><span class="status status-<?= $p['status'] ?>"><?= ucfirst($p['status']) ?></span></td>
+                                <td><?= date('d/m/Y H:i', strtotime($p['created_at'])) ?></td>
+                                <td>
+                                    <a href="pesanan.php?id=<?= $p['id'] ?>" class="btn btn-primary btn-sm">Detail</a>
+                                    <?php if ($p['status'] === 'pending'): ?>
+                                        <a href="pesanan.php?batal=<?= $p['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Batalkan pesanan ini?')">Batalkan</a>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
             <?php endif; ?>
         </div>
     </div>

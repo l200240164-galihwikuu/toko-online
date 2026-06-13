@@ -17,7 +17,7 @@ if (isLoggedIn() && !isAdmin()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $page_title ?></title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css?v=<?= time() ?>">
 </head>
 <body>
 
@@ -25,7 +25,7 @@ if (isLoggedIn() && !isAdmin()) {
     <div class="navbar-inner">
 
         <a href="<?= BASE_URL ?>index.php" class="navbar-brand">
-            Toko Online
+            TokoKu
         </a>
 
         <!-- Tombol Hamburger -->
@@ -39,8 +39,7 @@ if (isLoggedIn() && !isAdmin()) {
         <div class="nav-overlay" id="navOverlay"></div>
 
         <ul class="navbar-nav" id="navbarNav">
-            <li><a href="<?= BASE_URL ?>index.php">Beranda</a></li>
-
+            <li><a href="/toko-online/index.php">Beranda</a></li>
             <?php if (isLoggedIn()): ?>
                 <?php if (isAdmin()): ?>
                     <li>
@@ -51,7 +50,7 @@ if (isLoggedIn() && !isAdmin()) {
                 <?php else: ?>
                     <li>
                         <a href="<?= BASE_URL ?>user/keranjang.php">
-                            🛒 Keranjang
+                            Keranjang
                             <?php if ($cart_count > 0): ?>
                                 <span class="badge-cart"><?= $cart_count ?></span>
                             <?php endif; ?>
