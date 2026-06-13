@@ -14,7 +14,7 @@ define('DB_NAME', 'toko_online');
 // define('DB_PASS', '');
 // define('DB_NAME', 'toko_online');
 
-define('BASE_URL', '/toko-online/');
+define('BASE_URL', '/');
 define('UPLOAD_DIR', __DIR__ . '/uploads/products/');
 
 // Koneksi Database
