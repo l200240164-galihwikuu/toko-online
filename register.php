@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body style="background:#f0f0f0;">
 
-<div class="register-wrapper">
+<div class="login-wrapper register-wrapper">
     <div class="login-header">
         <h2>Daftar Akun Baru</h2>
     </div>
