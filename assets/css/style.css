@@ -877,31 +877,6 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     }
 }
 
-/* --- RESPONSIF REGISTER--- */
-@media (max-width: 576px){
-
-    .login-wrapper{
-        width: 100%;
-        max-width: 100%;
-        margin: 20px 10px;
-        border-radius: 8px;
-    }
-
-    .login-body{
-        padding: 15px;
-    }
-
-    .form-control{
-        width: 100%;
-        font-size: 14px;
-    }
-
-    .btn-block{
-        width: 100%;
-    }
-}
-
-
 @media (max-width: 1024px) {
     .product-grid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -938,7 +913,7 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 /* Wrap table dalam scrollable container */
 
 .login-wrapper {
-   width: 400px;
+   width: 800px;
    max-width: 90%;
    margin: 60px auto;
    background: #fff;
