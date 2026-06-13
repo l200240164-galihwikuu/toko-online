@@ -1,7 +1,13 @@
 <?php require_once '../includes/header.php'; ?>
 <div class="admin-layout">
+
+<!-- Sidebar -->
 <div class="sidebar">
-    <div class="sidebar-box">
+    <!-- Toggle button (tampil di mobile saja via CSS) -->
+    <button class="sidebar-toggle collapsed" id="sidebarToggle" type="button">
+        ⚙ Panel Admin
+    </button>
+    <div class="sidebar-box" id="sidebarBox">
         <div class="sidebar-title">⚙ Panel Admin</div>
         <ul class="sidebar-menu">
             <li><a href="dashboard.php" <?= ($active_menu??'')==='dashboard'?'class="active"':'' ?>>📊 Dashboard</a></li>
@@ -15,4 +21,18 @@
         Login sebagai:<br><strong><?= $_SESSION['nama'] ?></strong>
     </div>
 </div>
+
 <div class="admin-main">
+
+<script>
+// Sidebar toggle untuk mobile
+(function(){
+    var btn = document.getElementById('sidebarToggle');
+    var box = document.getElementById('sidebarBox');
+    if (!btn || !box) return;
+    btn.addEventListener('click', function(){
+        box.classList.toggle('is-open');
+        btn.classList.toggle('collapsed');
+    });
+})();
+</script>

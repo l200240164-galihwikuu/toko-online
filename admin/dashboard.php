@@ -21,26 +21,32 @@ require_once 'sidebar.php';
         <div class="stat-num"><?= $total_produk ?></div>
         <div class="stat-label">Total Produk</div>
     </div>
+
     <div class="stat-box">
         <div class="stat-num"><?= $total_user ?></div>
         <div class="stat-label">Total User</div>
     </div>
+
     <div class="stat-box">
         <div class="stat-num"><?= $total_pesanan ?></div>
         <div class="stat-label">Total Pesanan</div>
     </div>
+</div>
+
+<div class="stat-grid-bottom">
     <div class="stat-box">
-        <div class="stat-num" style="font-size:16px;"><?= formatRupiah($total_pendapatan) ?></div>
+        <div class="stat-num" style="font-size:16px;">
+            <?= formatRupiah($total_pendapatan) ?>
+        </div>
         <div class="stat-label">Pendapatan (Selesai)</div>
     </div>
 </div>
 
-<div style="display:flex; gap:15px; flex-wrap:wrap;">
-    <div style="flex:2; min-width:280px;">
+<div class="dahsboard-row">
+    <div class="dashboard-left">
         <div class="box">
             <div class="box-title">Pesanan Terbaru</div>
-            <div class="box-body" style="padding:0;">
-                <table class="table">
+            <div class="box-body" style="padding:0;"><div class="table-responsive"><table class="table">
                     <thead>
                         <tr><th>Kode</th><th>Pembeli</th><th>Total</th><th>Status</th><th>Tanggal</th></tr>
                     </thead>
@@ -59,15 +65,14 @@ require_once 'sidebar.php';
                         <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>
-                </table>
+                </table></div>
             </div>
         </div>
     </div>
-    <div style="flex:1; min-width:220px;">
+    <div class="dashboard-right">
         <div class="box">
             <div class="box-title" style="background:#dd9900; color:#fff;">⚠ Stok Hampir Habis</div>
-            <div class="box-body" style="padding:0;">
-                <table class="table">
+            <div class="box-body" style="padding:0;"><div class="table-responsive"><table class="table">
                     <thead><tr><th>Produk</th><th>Stok</th></tr></thead>
                     <tbody>
                         <?php if (empty($produk_stok_rendah)): ?>
@@ -81,7 +86,7 @@ require_once 'sidebar.php';
                         <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>
-                </table>
+                </table></div>
             </div>
         </div>
     </div>

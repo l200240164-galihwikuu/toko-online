@@ -78,8 +78,7 @@ require_once 'sidebar.php';
 
 <div class="box">
     <div class="box-title">Daftar Kategori</div>
-    <div class="box-body" style="padding:0;">
-        <table class="table">
+    <div class="box-body" style="padding:0;"><div class="table-responsive"><table class="table">
             <thead><tr><th>No</th><th>Nama Kategori</th><th>Slug</th><th>Deskripsi</th><th>Jml Produk</th><th>Aksi</th></tr></thead>
             <tbody>
                 <?php if (empty($list)): ?>
@@ -100,7 +99,7 @@ require_once 'sidebar.php';
                 <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
-        </table>
+        </table></div>
     </div>
 </div>
 

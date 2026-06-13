@@ -87,7 +87,7 @@ require_once 'sidebar.php';
                     <td><strong class="text-red"><?= formatRupiah($detail_pesanan['total']) ?></strong></td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </div>
 </div>
 <?php else: ?>
@@ -107,8 +107,7 @@ require_once 'sidebar.php';
             <?php if ($filter_status): ?><a href="pesanan.php" class="btn">Reset</a><?php endif; ?>
         </form>
     </div>
-    <div class="box-body" style="padding:0;">
-        <table class="table">
+    <div class="box-body" style="padding:0;"><div class="table-responsive"><table class="table">
             <thead><tr><th>Kode Pesanan</th><th>Pembeli</th><th>Total</th><th>Status</th><th>Tanggal</th><th>Aksi</th></tr></thead>
             <tbody>
                 <?php if (empty($list)): ?>
@@ -126,7 +125,7 @@ require_once 'sidebar.php';
                 <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
-        </table>
+        </table></div>
     </div>
 </div>
 <?php endif; ?>

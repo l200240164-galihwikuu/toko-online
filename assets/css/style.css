@@ -12,6 +12,11 @@
     box-sizing: border-box;
 }
 
+html,
+body{
+    overflow-x:hidden;
+}
+
 :root {
     --bg:         #F8FAFC;
     --surface:    #FFFFFF;
@@ -814,7 +819,7 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     .navbar-nav{
         position: fixed;
         top: 60px;
-        right: 0;
+        right: -260px;
 
         width: 260px;
         height: calc(100vh - 60px);
@@ -824,14 +829,13 @@ textarea.form-control { resize: vertical; min-height: 90px; }
         display: flex;
         flex-direction: column;
 
-        transform: translateX(260px); /* sembunyikan sejak awal */
-        transition: transform .3s ease;
+        transition: right .3s ease;
 
         z-index: 1001;
     }
 
     .navbar-nav.is-open{
-        transform: translateX(0);
+        right: 0;
     }
 
     .navbar-nav li{
@@ -863,6 +867,14 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     body {
         overflow-x: hidden;
     }
+
+    .navbar-nav{
+    transform: translateX(100%);
+    }
+
+    .navbar-nav.is-open{
+        transform: translateX(0);
+    }
 }
     
 
@@ -875,13 +887,13 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .admin-layout { flex-direction: column; }
     .sidebar { width: 100%; }
-    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
     .main-content { padding: 20px 0 36px; }
     .login-wrapper { margin-top: 40px; }
 }
 @media (max-width: 480px) {
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
     .search-bar { flex-direction: column; align-items: stretch; }
     .search-bar input, .search-bar select, .search-bar .btn { width: 100%; }
 }
@@ -892,4 +904,303 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 .login-wrapper.register-wrapper{
     width: 100%;
     max-width: 650px !important;
+}
+
+/* =========================
+   ADMIN RESPONSIVE FIX
+   Mobile-first fixes for admin panel
+   ========================= */
+
+/* Wrap table dalam scrollable container */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+}
+
+/* Pastikan table tidak collapse di mobile */
+.table {
+    min-width: 500px;
+}
+
+/* Sidebar mobile: tambah toggle button */
+.sidebar-toggle {
+    display: none;
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: left;
+    gap: 8px;
+    align-items: center;
+}
+.sidebar-toggle::after {
+    content: '▼';
+    margin-left: auto;
+    font-size: 10px;
+    transition: transform var(--transition);
+}
+.sidebar-toggle.collapsed::after {
+    transform: rotate(-90deg);
+}
+
+/* Kolom aksi: stack tombol di mobile */
+@media (max-width: 768px) {
+
+    /* Sidebar toggle tampil di mobile */
+    .sidebar-toggle {
+        display: flex;
+    }
+
+    /* Sidebar menu collapsible */
+    .sidebar-box {
+        display: none;
+    }
+    .sidebar-box.is-open {
+        display: block;
+    }
+
+    /* Admin layout: kurangi gap */
+    .admin-layout {
+        gap: 12px;
+        margin: 16px auto;
+        padding: 0 12px;
+    }
+
+    /* Box padding lebih kecil */
+    .box-body {
+        padding: 14px;
+    }
+
+    /* Table wrapper scroll horizontal */
+    .box-body[style*="padding:0"],
+    .box > .box-body:has(.table) {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Semua table di dalam .box bisa scroll */
+    .box .table {
+        min-width: 480px;
+    }
+
+    /* Form produk/kategori: stack kolom */
+    .admin-layout .box-body > form > div[style*="display:flex"] {
+        flex-direction: column !important;
+    }
+
+    /* Tombol aksi di tabel: lebih kecil dan wrap */
+    .table td .btn-sm {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    /* Stat grid: 2 kolom sudah OK */
+    .stat-box .stat-num {
+        font-size: 22px;
+    }
+
+    /* Search bar full width */
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-bar input,
+    .search-bar .btn {
+        width: 100%;
+    }
+
+    /* Box title lebih compact */
+    .box-title {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .admin-layout {
+        padding: 0 10px;
+        margin: 12px auto;
+    }
+
+    /* Stat box lebih compact */
+    .stat-box {
+        padding: 14px;
+    }
+    .stat-box .stat-num {
+        font-size: 20px;
+    }
+    .stat-box .stat-label {
+        font-size: 10px;
+    }
+
+    /* Table scroll lebih smooth */
+    .box .table {
+        min-width: 420px;
+    }
+
+    /* Tombol aksi: block stacking */
+    .table td > .btn-sm + .btn-sm {
+        margin-left: 2px;
+    }
+}
+
+
+/* ===== Dashboard ===== */
+
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stat-box{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.stat-num{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.stat-label{
+    margin-top:5px;
+    color:#666;
+}
+
+/* Wrapper tabel */
+.table-responsive{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+/* Tabel */
+.table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:600px;
+}
+
+.table th,
+.table td{
+    padding:10px;
+    white-space:nowrap;
+}
+
+/* Layout bawah */
+.dashboard-row{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.dashboard-left{
+    flex:2;
+    min-width:280px;
+}
+
+.dashboard-right{
+    flex:1;
+    min-width:220px;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 992px){
+
+    .stat-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .dashboard-row{
+        flex-direction:column;
+    }
+
+    .dashboard-left,
+    .dashboard-right{
+        width:100%;
+    }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 576px){
+
+    .stat-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+    }
+
+    .stat-box{
+        padding:15px;
+    }
+
+    .stat-num{
+        font-size:22px;
+    }
+
+    .stat-label{
+        font-size:12px;
+    }
+
+    .box-title{
+        font-size:14px;
+    }
+
+    .table th,
+    .table td{
+        padding:8px;
+        font-size:13px;
+    }
+}
+
+
+@media (max-width: 768px){
+
+    .container,
+    .admin-layout,
+    .admin-main{
+        width:100%;
+        max-width:100%;
+        overflow:hidden;
+    }
+
+    .dashboard-row{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+    }
+
+    .dashboard-left,
+    .dashboard-right{
+        width:100%;
+        min-width:0;
+    }
+
+    .box{
+        width:100%;
+        max-width:100%;
+    }
+
+    .table-responsive{
+        width:100%;
+        overflow-x:auto;
+    }
+
+    .table{
+        min-width:unset;
+        width:max-content;
+    }
 }

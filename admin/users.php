@@ -95,8 +95,7 @@ require_once 'sidebar.php';
 
 <div class="box">
     <div class="box-title">Daftar Users</div>
-    <div class="box-body" style="padding:0;">
-        <table class="table">
+    <div class="box-body" style="padding:0;"><div class="table-responsive"><table class="table">
             <thead><tr><th>Nama</th><th>Email</th><th>Role</th><th>Telepon</th><th>Pesanan</th><th>Terdaftar</th><th>Aksi</th></tr></thead>
             <tbody>
                 <?php foreach ($list as $u): ?>
@@ -116,7 +115,7 @@ require_once 'sidebar.php';
                 </tr>
                 <?php endforeach; ?>
             </tbody>
-        </table>
+        </table></div>
     </div>
 </div>
 

@@ -160,8 +160,7 @@ require_once 'sidebar.php';
             <?php if ($search): ?><a href="produk.php" class="btn">Reset</a><?php endif; ?>
         </form>
     </div>
-    <div class="box-body" style="padding:0;">
-        <table class="table">
+    <div class="box-body" style="padding:0;"><div class="table-responsive"><table class="table">
             <thead>
                 <tr><th>Foto</th><th>Nama Produk</th><th>Kategori</th><th>Harga</th><th>Stok</th><th>Status</th><th>Aksi</th></tr>
             </thead>
@@ -192,7 +191,7 @@ require_once 'sidebar.php';
                 <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
-        </table>
+        </table></div>
     </div>
 </div>
 
